@@ -59,3 +59,7 @@ a = true;
 var b = 10;
 // intelisense senses that variable b is a number type but not a
 // because a is defined without a value
+// Union of Types
+var multiType;
+multiType = 20;
+multiType = true;

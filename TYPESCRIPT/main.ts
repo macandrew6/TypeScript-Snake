@@ -68,3 +68,8 @@ a = true;
 let b = 10;
 // intelisense senses that variable b is a number type but not a
 // because a is defined without a value
+
+// Union of Types
+let multiType: number | boolean;
+multiType = 20;
+multiType = true;
