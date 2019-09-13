@@ -55,7 +55,7 @@ function hasName(obj: any): obj is { name: string  } {
 if (hasName(myVariable2)) {
   console.log(myVariable2.name);
 }
-(myVariable2 as string).toUpperCase();
+// (myVariable2 as string).toUpperCase();
 
 // 2 major concepts revolving typescript
 // Type Inference
@@ -92,3 +92,8 @@ function add3(num1: number, num2: number = 10): number {
 }
 
 console.log(add(10, 5));
+
+//Interfaces
+function fullName(person: {firstName: string, lastName: string}) {
+  console.log(`${person.firstName} ${person.lastName}`);
+}
