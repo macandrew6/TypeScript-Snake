@@ -134,3 +134,8 @@ var m1 = new Manager('Clark');
 m1.delegateWork();
 m1.greet();
 console.log(m1.employeeName);
+//Access Modifiers (public, private, protected)
+// variables defaults to public
+// private variables can only be accesed within the class it was created in
+// protected variables can be accessed through the inheritance chain. but not 
+// outside the chain
