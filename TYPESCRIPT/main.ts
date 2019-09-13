@@ -73,3 +73,5 @@ let b = 10;
 let multiType: number | boolean;
 multiType = 20;
 multiType = true;
+
+// => Functions

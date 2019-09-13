@@ -63,3 +63,4 @@ var b = 10;
 var multiType;
 multiType = 20;
 multiType = true;
+// => Functions
