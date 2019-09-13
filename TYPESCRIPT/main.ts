@@ -116,3 +116,34 @@ function fullName2(person: Person) {
 fullName2(p)
 
 //Classes and Access Modifiers
+
+class Employee {
+  employeeName: string;
+
+  constructor(name: string) {
+    this.employeeName = name;
+  }
+
+  greet() {
+    console.log(`Good Morning ${this.employeeName}`);
+  }
+}
+
+let empl1 = new Employee('Andrew');
+console.log(empl1.employeeName);
+empl1.greet();
+
+class Manager extends Employee {
+  constructor(managerName: string) {
+    super(managerName);
+  }
+
+  delegateWork() {
+    console.log(`Manager delegating task`)
+  }
+}
+
+let m1 = new Manager('Clark');
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeeName);
