@@ -94,3 +94,4 @@ function fullName2(person) {
     console.log(person.firstName + " " + person.lastName);
 }
 fullName2(p);
+//Classes and Access Modifiers
