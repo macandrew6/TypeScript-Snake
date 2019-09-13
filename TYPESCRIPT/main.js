@@ -33,3 +33,26 @@ var Color;
 ;
 var c = Color.Green;
 console.log(c);
+var randomValue = 10;
+randomValue = true;
+randomValue = 'Jameis';
+// => danger zone:
+var myVariable = 10;
+console.log(myVariable.name);
+myVariable();
+myVariable.toUpperCase();
+// notice no errors were thrown..
+// how to fix
+var myVariable2 = 10;
+function hasName(obj) {
+    return !!obj && typeof obj === "object" && "name" in obj;
+}
+if (hasName(myVariable2)) {
+    console.log(myVariable2.name);
+}
+myVariable2.toUpperCase();
+// 2 major concepts revolving typescript
+// Type Inference
+var a;
+a = 10;
+a = true;

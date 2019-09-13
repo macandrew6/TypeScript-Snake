@@ -35,5 +35,32 @@ let person1: [string, number] = ['Greg', 88]
 enum Color {Red = 5, Green, Blue};
 
 let c: Color = Color.Green
-
 console.log(c);
+
+let randomValue: any = 10;
+randomValue = true;
+randomValue = 'Jameis';
+
+// => danger zone:
+let myVariable: any = 10;
+console.log(myVariable.name);
+myVariable();
+myVariable.toUpperCase();
+// notice no errors were thrown..
+
+// how to fix
+let myVariable2: unknown = 10;
+
+function hasName(obj: any): obj is { name: string  } {
+  return !!obj && typeof obj === "object" && "name" in obj
+}
+if (hasName(myVariable2)) {
+  console.log(myVariable2.name);
+}
+(myVariable2 as string).toUpperCase();
+
+// 2 major concepts revolving typescript
+// Type Inference
+let a;
+a = 10;
+a = true;
