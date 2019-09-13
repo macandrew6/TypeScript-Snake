@@ -1,2 +1,5 @@
-let message = "Hello World";
+export {}
+let message = "Welcome back";
 console.log(message);
+
+//variable declaration:
