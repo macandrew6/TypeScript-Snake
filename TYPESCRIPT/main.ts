@@ -44,8 +44,6 @@ randomValue = 'Jameis';
 // => danger zone:
 let myVariable: any = 10;
 console.log(myVariable.name);
-myVariable();
-myVariable.toUpperCase();
 // notice no errors were thrown..
 
 // how to fix
@@ -75,3 +73,22 @@ multiType = 20;
 multiType = true;
 
 // => Functions
+function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+// optional paramaters
+function add2(num1: number, num2?: number): number {
+  if (num2) {
+    return num1 + num2;
+  }
+  return num1;
+}
+// default parameters
+function add3(num1: number, num2: number = 10): number {
+  if (num2) {
+    return num1 + num2;
+  }
+  return num1;
+}
+
+console.log(add(10, 5));
