@@ -97,3 +97,20 @@ console.log(add(10, 5));
 function fullName(person: {firstName: string, lastName: string}) {
   console.log(`${person.firstName} ${person.lastName}`);
 }
+
+let p = {
+  firstName: 'Bruce',
+  lastName: 'Wayne'
+};
+
+fullName(p);
+// problems arise when objects have more properties (solution follows):
+interface Person {
+  firstName: string,
+  lastName: string
+}
+
+function fullName2(person: Person) {
+  console.log(`${person.firstName} ${person.lastName}`);
+}
+fullName2(p)

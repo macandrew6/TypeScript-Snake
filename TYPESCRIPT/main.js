@@ -85,3 +85,12 @@ console.log(add(10, 5));
 function fullName(person) {
     console.log(person.firstName + " " + person.lastName);
 }
+var p = {
+    firstName: 'Bruce',
+    lastName: 'Wayne'
+};
+fullName(p);
+function fullName2(person) {
+    console.log(person.firstName + " " + person.lastName);
+}
+fullName2(p);
