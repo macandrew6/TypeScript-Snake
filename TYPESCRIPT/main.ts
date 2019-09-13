@@ -64,3 +64,7 @@ if (hasName(myVariable2)) {
 let a;
 a = 10;
 a = true;
+
+let b = 10;
+// intelisense senses that variable b is a number type but not a
+// because a is defined without a value
