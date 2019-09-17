@@ -1,3 +1,5 @@
+import Board from './board';
+
 export class Game {
   public canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
@@ -12,6 +14,8 @@ export class Game {
 
   private loop() {
     this.requestedFrameId = requestAnimationFrame(() => this.loop());
+    new Board();
+    console.log('looping')
     console.log(++this.loopCount);
   }
 
