@@ -12,7 +12,6 @@ export class Game {
 
   private loop() {
     this.requestedFrameId = requestAnimationFrame(() => this.loop());
-    console.log("looping");
     console.log(++this.loopCount);
   }
 
