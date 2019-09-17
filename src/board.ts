@@ -1,14 +1,26 @@
 import Square from './square';
+import * as Settings from './settings';
 
-export default class Board {
-  constructor() {
-    this.buildGrid();
+export class Board {
+  private canvasWidth: number = 0;
+  private canvasHeight: number = 0;
+  private ctx: CanvasRenderingContext2D;
+  private cellWidth: number;
+  private cellHeight: number;
+
+  constructor(private canvas: HTMLCanvasElement) {
+    this.ctx = canvas.getContext("2d");
+    this.canvasWidth = canvas.width;
+    this.canvasHeight = canvas.height;
+    this.cellWidth = this.canvasWidth / Settings.board.dimX
+    this.cellHeight = this.canvasHeight / Settings.board.dimX
   }
 
-  buildGrid() {
-    for (let row = 0; row < 12; row++) {
-      for (let col = 0; col < 12; col++) {
-        new Square(row, col);
+  draw() {
+
+    for (let col = 0; col < Settings.board.dimX; col++) {
+      for (let row = 0; row < Settings.board.dimY; row++) {
+        this.ctx.fillRect(col * this.cellWidth, row * this.cellHeight, this.cellWidth - 3, this.cellHeight - 3);
       }
     }
   }

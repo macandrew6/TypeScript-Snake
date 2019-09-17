@@ -102,11 +102,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src
 /*!**********************!*\
   !*** ./src/board.ts ***!
   \**********************/
-/*! exports provided: default */
+/*! exports provided: Board */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _square__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./square */ \"./src/square.ts\");\n\nvar Board = /** @class */ (function () {\n    function Board() {\n        this.buildGrid();\n    }\n    Board.prototype.buildGrid = function () {\n        for (var row = 0; row < 12; row++) {\n            for (var col = 0; col < 12; col++) {\n                new _square__WEBPACK_IMPORTED_MODULE_0__[\"default\"](row, col);\n            }\n        }\n    };\n    return Board;\n}());\n/* harmony default export */ __webpack_exports__[\"default\"] = (Board);\n\n\n//# sourceURL=webpack:///./src/board.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Board\", function() { return Board; });\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./settings */ \"./src/settings.ts\");\n\nvar Board = /** @class */ (function () {\n    function Board(canvas) {\n        this.canvas = canvas;\n        this.canvasWidth = 0;\n        this.canvasHeight = 0;\n        this.ctx = canvas.getContext(\"2d\");\n        this.canvasWidth = canvas.width;\n        this.canvasHeight = canvas.height;\n        this.cellWidth = this.canvasWidth / _settings__WEBPACK_IMPORTED_MODULE_0__[\"board\"].dimX;\n        this.cellHeight = this.canvasHeight / _settings__WEBPACK_IMPORTED_MODULE_0__[\"board\"].dimX;\n    }\n    Board.prototype.draw = function () {\n        for (var col = 0; col < _settings__WEBPACK_IMPORTED_MODULE_0__[\"board\"].dimX; col++) {\n            for (var row = 0; row < _settings__WEBPACK_IMPORTED_MODULE_0__[\"board\"].dimY; row++) {\n                this.ctx.fillRect(col * this.cellWidth, row * this.cellHeight, this.cellWidth - 3, this.cellHeight - 3);\n            }\n        }\n    };\n    return Board;\n}());\n\n\n\n//# sourceURL=webpack:///./src/board.ts?");
 
 /***/ }),
 
@@ -118,19 +118,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _squ
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Game\", function() { return Game; });\n/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board */ \"./src/board.ts\");\n\nvar Game = /** @class */ (function () {\n    function Game(canvas) {\n        this.requestedFrameId = -1;\n        this.loopCount = 0;\n        this.canvas = canvas;\n        this.ctx = canvas.getContext(\"2d\");\n    }\n    Game.prototype.loop = function () {\n        var _this = this;\n        this.requestedFrameId = requestAnimationFrame(function () { return _this.loop(); });\n        new _board__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n        console.log('looping');\n        console.log(++this.loopCount);\n    };\n    Game.prototype.startLoop = function () {\n        var _this = this;\n        this.requestedFrameId = requestAnimationFrame(function () { return _this.loop(); });\n    };\n    Game.prototype.endLoop = function () {\n        cancelAnimationFrame(this.requestedFrameId);\n    };\n    return Game;\n}());\n\n\n\n//# sourceURL=webpack:///./src/game.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Game\", function() { return Game; });\n/* harmony import */ var _board__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./board */ \"./src/board.ts\");\n\nvar Game = /** @class */ (function () {\n    function Game(canvas) {\n        this.requestedFrameId = -1;\n        this.loopCount = 0;\n        this.canvas = canvas;\n        this.ctx = canvas.getContext(\"2d\");\n        this.board = new _board__WEBPACK_IMPORTED_MODULE_0__[\"Board\"](canvas);\n    }\n    Game.prototype.loop = function () {\n        var _this = this;\n        this.requestedFrameId = requestAnimationFrame(function () { return _this.loop(); });\n        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);\n        this.board.draw();\n        console.log('looping');\n        console.log(++this.loopCount);\n    };\n    Game.prototype.startLoop = function () {\n        var _this = this;\n        this.requestedFrameId = requestAnimationFrame(function () { return _this.loop(); });\n    };\n    Game.prototype.endLoop = function () {\n        cancelAnimationFrame(this.requestedFrameId);\n    };\n    return Game;\n}());\n\n\n\n//# sourceURL=webpack:///./src/game.ts?");
 
 /***/ }),
 
-/***/ "./src/square.ts":
-/*!***********************!*\
-  !*** ./src/square.ts ***!
-  \***********************/
-/*! exports provided: default */
+/***/ "./src/settings.ts":
+/*!*************************!*\
+  !*** ./src/settings.ts ***!
+  \*************************/
+/*! exports provided: board */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar Square = /** @class */ (function () {\n    function Square(row, col) {\n        this.row = row;\n        this.col = col;\n        this.row = row;\n        this.col = col;\n    }\n    return Square;\n}());\n/* harmony default export */ __webpack_exports__[\"default\"] = (Square);\n\n\n//# sourceURL=webpack:///./src/square.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"board\", function() { return board; });\nvar board = {\n    dimX: 10,\n    dimY: 10\n};\n\n\n//# sourceURL=webpack:///./src/settings.ts?");
 
 /***/ })
 
