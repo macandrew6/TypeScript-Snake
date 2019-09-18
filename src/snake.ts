@@ -21,7 +21,6 @@ export class Snake {
     this.x = 0;
     this.y = 0;
 
-    this.draw = this.draw.bind(this);
     this.update = this.update.bind(this);
     document.addEventListener("keydown", this.changeDirection);
   }
@@ -43,29 +42,21 @@ export class Snake {
     const UP_KEY = 38; 
     const DOWN_KEY = 40;
     const keyPressed = e.keyCode; 
-    const goingUp = this.y === -10; 
-    const goingDown = this.y === 10; 
-    const goingRight = this.x === 10; 
-    const goingLeft = this.x === -10;
-    if (keyPressed === LEFT_KEY && !goingRight) { 
+    if (keyPressed === LEFT_KEY) { 
       console.log('going left')
       this.x--; this.y = 0; 
-      // this.draw();
     }
-    if (keyPressed === UP_KEY && !goingDown) { 
+    if (keyPressed === UP_KEY) { 
       console.log('going up')
       this.x = 0; this.y++; 
-      // this.draw();
     }
-    if (keyPressed === RIGHT_KEY && !goingLeft) { 
+    if (keyPressed === RIGHT_KEY) { 
       console.log('going right')
       this.x++; this.y = 0; 
-      // this.draw();
     }
-    if (keyPressed === DOWN_KEY && !goingUp) { 
+    if (keyPressed === DOWN_KEY) { 
       console.log('going down')
       this.x = 0; this.y--; 
-      // this.draw();
     }
   }
 
