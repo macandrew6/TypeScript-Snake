@@ -23,8 +23,8 @@ export class Game {
     this.board.draw();
     this.snake.draw();
     this.snake.update();
-    console.log('looping')
-    console.log(++this.loopCount);
+    // console.log('looping')
+    // console.log(++this.loopCount);
   }
 
   startLoop() {

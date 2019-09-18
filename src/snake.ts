@@ -21,6 +21,8 @@ export class Snake {
     this.x = 0;
     this.y = 0;
 
+    this.draw = this.draw.bind(this);
+    this.update = this.update.bind(this);
     document.addEventListener("keydown", this.changeDirection);
   }
 
@@ -35,6 +37,7 @@ export class Snake {
   }
 
   changeDirection(e: KeyboardEvent) {
+    console.log('changing direction')
     const LEFT_KEY = 37; 
     const RIGHT_KEY = 39; 
     const UP_KEY = 38; 
@@ -44,17 +47,36 @@ export class Snake {
     const goingDown = this.y === 10; 
     const goingRight = this.x === 10; 
     const goingLeft = this.x === -10;
-    if (keyPressed === LEFT_KEY && !goingRight) { this.x = -10; this.y = 0; }
-    if (keyPressed === UP_KEY && !goingDown) { this.x = 0; this.y = -10; }
-    if (keyPressed === RIGHT_KEY && !goingLeft) { this.x = 10; this.y = 0; }
-    if (keyPressed === DOWN_KEY && !goingUp) { this.x = 0; this.y = 10; }
+    if (keyPressed === LEFT_KEY && !goingRight) { 
+      console.log('going left')
+      this.x--; this.y = 0; 
+      // this.draw();
+    }
+    if (keyPressed === UP_KEY && !goingDown) { 
+      console.log('going up')
+      this.x = 0; this.y++; 
+      // this.draw();
+    }
+    if (keyPressed === RIGHT_KEY && !goingLeft) { 
+      console.log('going right')
+      this.x++; this.y = 0; 
+      // this.draw();
+    }
+    if (keyPressed === DOWN_KEY && !goingUp) { 
+      console.log('going down')
+      this.x = 0; this.y--; 
+      // this.draw();
+    }
   }
 
   update() {
     this.updateFrame ++;
     if (this.updateFrame % 10 === 0) {
       this.x++;
-      if (this.x > Settings.board.dimX) this.x = 0;
+      // if (this.x > Settings.board.dimX) this.x = 0;
+      return (e: KeyboardEvent) => {
+        this.changeDirection(e);
+      }
     }
   }
 }

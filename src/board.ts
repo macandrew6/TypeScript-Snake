@@ -1,4 +1,3 @@
-import Square from './square';
 import * as Settings from './settings';
 
 export class Board {
