@@ -20,6 +20,8 @@ export class Snake {
 
     this.x = 0;
     this.y = 0;
+
+    document.addEventListener("keydown", this.changeDirection);
   }
 
   draw() {
@@ -32,17 +34,20 @@ export class Snake {
     );
   }
 
-  changeDirection(event) {
-    const LEFT_KEY = 37; const RIGHT_KEY = 39; const UP_KEY = 38; const DOWN_KEY = 40;
-    const keyPressed = event.keyCode; 
-    const goingUp = dy === -10; 
-    const goingDown = dy === 10; 
-    const goingRight = dx === 10; 
-    const goingLeft = dx === -10;
-    if (keyPressed === LEFT_KEY && !goingRight) { dx = -10; dy = 0; }
-    if (keyPressed === UP_KEY && !goingDown) { dx = 0; dy = -10; }
-    if (keyPressed === RIGHT_KEY && !goingLeft) { dx = 10; dy = 0; }
-    if (keyPressed === DOWN_KEY && !goingDown) { dx = 0; dy = 10; }
+  changeDirection(e: KeyboardEvent) {
+    const LEFT_KEY = 37; 
+    const RIGHT_KEY = 39; 
+    const UP_KEY = 38; 
+    const DOWN_KEY = 40;
+    const keyPressed = e.keyCode; 
+    const goingUp = this.y === -10; 
+    const goingDown = this.y === 10; 
+    const goingRight = this.x === 10; 
+    const goingLeft = this.x === -10;
+    if (keyPressed === LEFT_KEY && !goingRight) { this.x = -10; this.y = 0; }
+    if (keyPressed === UP_KEY && !goingDown) { this.x = 0; this.y = -10; }
+    if (keyPressed === RIGHT_KEY && !goingLeft) { this.x = 10; this.y = 0; }
+    if (keyPressed === DOWN_KEY && !goingUp) { this.x = 0; this.y = 10; }
   }
 
   update() {
