@@ -46,19 +46,15 @@ export class Snake {
     const DOWN_KEY = 40;
     const keyPressed = e.keyCode; 
     if (keyPressed === LEFT_KEY) { 
-      console.log('going left')
       this.direction = [-1, 0];
     }
     if (keyPressed === UP_KEY) { 
-      console.log('going up')
       this.direction = [0, -1]; 
     }
     if (keyPressed === RIGHT_KEY) { 
-      console.log('going right')
       this.direction = [1, 0]; 
     }
     if (keyPressed === DOWN_KEY) { 
-      console.log('going down')
       this.direction = [0, 1]; 
     }
   }
@@ -68,7 +64,7 @@ export class Snake {
     if (this.updateFrame % 10 === 0) {
       this.x += this.direction[0];
       this.y += this.direction[1];
-      
+
       if (this.x > Settings.board.dimX) this.x = 0;
     }
   }
