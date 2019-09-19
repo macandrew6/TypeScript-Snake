@@ -7,9 +7,10 @@ export class Snake {
   private canvasHeight: number = 0;
   private cellWidth: number;
   private cellHeight: number;
-  private direction: [number, number];
   private x: number;
   private y: number;
+  private direction: [number, number];
+  private snakeBody: object[];
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext("2d");
@@ -19,9 +20,14 @@ export class Snake {
     this.cellWidth = this.canvasWidth / Settings.board.dimX
     this.cellHeight = this.canvasHeight / Settings.board.dimX
 
-    this.x = 0;
-    this.y = 0;
+    this.x = 5;
+    this.y = 5;
     this.direction = [1, 0];
+    this.snakeBody = [
+      {x: 4, y: 5},
+      {x: 3, y: 5},
+      {x: 2, y: 5}
+    ];
 
     this.changeDirection = this.changeDirection.bind(this);
     this.update = this.update.bind(this);

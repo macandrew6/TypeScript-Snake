@@ -17,9 +17,14 @@ export class Board {
 
   draw() {
     this.ctx.fillStyle = "black";
-    for (let col = 0; col < Settings.board.dimX; col++) {
-      for (let row = 0; row < Settings.board.dimY; row++) {
-        this.ctx.fillRect(col * this.cellWidth, row * this.cellHeight, this.cellWidth - 3, this.cellHeight - 3);
+    for (let row = 0; row < Settings.board.dimX; row++) {
+      for (let col = 0; col < Settings.board.dimY; col++) {
+        this.ctx.fillRect(
+          row * this.cellWidth, 
+          col * this.cellHeight, 
+          this.cellWidth - 3, 
+          this.cellHeight - 3
+        );
       }
     }
   }
