@@ -7,6 +7,7 @@ export class Snake {
   private canvasHeight: number = 0;
   private cellWidth: number;
   private cellHeight: number;
+  private direction: [number, number];
   private x: number;
   private y: number;
 
@@ -20,7 +21,9 @@ export class Snake {
 
     this.x = 0;
     this.y = 0;
+    this.direction = [1, 0];
 
+    this.changeDirection = this.changeDirection.bind(this);
     this.update = this.update.bind(this);
     document.addEventListener("keydown", this.changeDirection);
   }
@@ -44,30 +47,29 @@ export class Snake {
     const keyPressed = e.keyCode; 
     if (keyPressed === LEFT_KEY) { 
       console.log('going left')
-      this.x--; this.y = 0; 
+      this.direction = [-1, 0];
     }
     if (keyPressed === UP_KEY) { 
       console.log('going up')
-      this.x = 0; this.y++; 
+      this.direction = [0, -1]; 
     }
     if (keyPressed === RIGHT_KEY) { 
       console.log('going right')
-      this.x++; this.y = 0; 
+      this.direction = [1, 0]; 
     }
     if (keyPressed === DOWN_KEY) { 
       console.log('going down')
-      this.x = 0; this.y--; 
+      this.direction = [0, 1]; 
     }
   }
 
   update() {
     this.updateFrame ++;
     if (this.updateFrame % 10 === 0) {
-      this.x++;
-      // if (this.x > Settings.board.dimX) this.x = 0;
-      return (e: KeyboardEvent) => {
-        this.changeDirection(e);
-      }
+      this.x += this.direction[0];
+      this.y += this.direction[1];
+      
+      if (this.x > Settings.board.dimX) this.x = 0;
     }
   }
 }
