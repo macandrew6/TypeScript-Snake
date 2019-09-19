@@ -39,7 +39,6 @@ export class Snake {
   }
 
   changeDirection(e: KeyboardEvent) {
-    console.log('changing direction')
     const LEFT_KEY = 37; 
     const RIGHT_KEY = 39; 
     const UP_KEY = 38; 
@@ -66,6 +65,9 @@ export class Snake {
       this.y += this.direction[1];
 
       if (this.x > Settings.board.dimX) this.x = 0;
+      if (this.y > Settings.board.dimY) this.y = 0;
+      if (this.x < 0) this.x = Settings.board.dimX;
+      if (this.y < 0) this.y = Settings.board.dimY;
     }
   }
 }
