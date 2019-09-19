@@ -50,16 +50,16 @@ export class Snake {
     const UP_KEY = 38; 
     const DOWN_KEY = 40;
     const keyPressed = e.keyCode; 
-    if (keyPressed === LEFT_KEY) { 
+    if (keyPressed === LEFT_KEY && this.direction[0] !== 1) { 
       this.direction = [-1, 0];
     }
-    if (keyPressed === UP_KEY) { 
+    if (keyPressed === UP_KEY && this.direction[1] !== 1) { 
       this.direction = [0, -1]; 
     }
-    if (keyPressed === RIGHT_KEY) { 
+    if (keyPressed === RIGHT_KEY && this.direction[0] !== -1) { 
       this.direction = [1, 0]; 
     }
-    if (keyPressed === DOWN_KEY) { 
+    if (keyPressed === DOWN_KEY && this.direction[1] !== -1) { 
       this.direction = [0, 1]; 
     }
   }
@@ -70,10 +70,10 @@ export class Snake {
       this.x += this.direction[0];
       this.y += this.direction[1];
 
-      if (this.x > Settings.board.dimX) this.x = 0;
-      if (this.y > Settings.board.dimY) this.y = 0;
-      if (this.x < 0) this.x = Settings.board.dimX;
-      if (this.y < 0) this.y = Settings.board.dimY;
+      if (this.x > Settings.board.dimX - 1) this.x = 0;
+      if (this.y > Settings.board.dimY - 1) this.y = 0;
+      if (this.x < 0) this.x = Settings.board.dimX - 1;
+      if (this.y < 0) this.y = Settings.board.dimY - 1;
     }
   }
 }
