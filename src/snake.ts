@@ -39,14 +39,6 @@ export class Snake {
       30, 
       30
     );
-    // for (let i = 0; i < this.snakeBody.length; i++) {
-    //   this.ctx.fillRect(
-    //     this.snakeBody[i].x * this.cellWidth,
-    //     this.snakeBody[i].y * this.cellHeight,
-    //     30,
-    //     30
-    //   )
-    // }
   }
 
   changeDirection(e: KeyboardEvent) {
