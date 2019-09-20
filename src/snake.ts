@@ -1,5 +1,7 @@
 import * as Settings from './settings';
 
+type SnakeNode = [number, number];
+
 export class Snake {
   private ctx: CanvasRenderingContext2D;
   private updateFrame: number = 0;
@@ -10,7 +12,7 @@ export class Snake {
   private x: number;
   private y: number;
   private direction: [number, number];
-  private snakeBody: object[];
+  private snakeBody: SnakeNode[] = [[5, 5], [4, 5], [3, 5], [2, 5]];
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext("2d");
@@ -20,14 +22,9 @@ export class Snake {
     this.cellWidth = this.canvasWidth / Settings.board.dimX
     this.cellHeight = this.canvasHeight / Settings.board.dimX
 
-    this.x = 5;
-    this.y = 5;
+    this.x = this.snakeBody[0][0];
+    this.y = this.snakeBody[0][1];
     this.direction = [1, 0];
-    this.snakeBody = [
-      {x: 4, y: 5},
-      {x: 3, y: 5},
-      {x: 2, y: 5}
-    ];
 
     this.changeDirection = this.changeDirection.bind(this);
     this.update = this.update.bind(this);
@@ -42,6 +39,14 @@ export class Snake {
       30, 
       30
     );
+    // for (let i = 0; i < this.snakeBody.length; i++) {
+    //   this.ctx.fillRect(
+    //     this.snakeBody[i].x * this.cellWidth,
+    //     this.snakeBody[i].y * this.cellHeight,
+    //     30,
+    //     30
+    //   )
+    // }
   }
 
   changeDirection(e: KeyboardEvent) {

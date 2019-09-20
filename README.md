@@ -24,5 +24,5 @@ documenting the process:
   next problem: (make the snake body)
     sets up an instance variable that is an array of coordinates
     main problem.. how to update the coordinates so that it follows the head
-    1. 
+    1. the idea is to use a linked list, eliminating from the tail and updating the head every update to the next coordinate and eliminating the tail
 
