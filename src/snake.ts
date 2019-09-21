@@ -13,6 +13,12 @@ export class Snake {
   private y: number;
   private direction: [number, number];
   private snakeBody: SnakeNode[] = [[5, 5], [4, 5], [3, 5], [2, 5]];
+  // the snake body can work like a linked list
+  // for every frame we can pop off the tail and add the new updated direction 
+  // to the head
+  // if we use and array like linked list we can pop off the array.length - 1 index value
+  // update and shift on the new updated coordinate
+
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext("2d");
