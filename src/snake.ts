@@ -74,6 +74,7 @@ export class Snake {
     this.updateFrame ++;
     if (this.updateFrame % 10 === 0) {
       // run updateSnakeBody here
+      // this.updateSnakeBody(this.x, this.y);
       this.x += this.direction[0];
       this.y += this.direction[1];
 
