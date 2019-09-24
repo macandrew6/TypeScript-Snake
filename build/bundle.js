@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Apple\", function() { return Apple; });\nvar Apple = /** @class */ (function () {\n    function Apple(x, y) {\n        this.x = x;\n        this.y = y;\n    }\n    return Apple;\n}());\n\n\n\n//# sourceURL=webpack:///./src/apple.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Apple\", function() { return Apple; });\nvar Apple = /** @class */ (function () {\n    function Apple(x, y) {\n        this.x = x;\n        this.y = y;\n    }\n    Apple.prototype.draw = function () {\n    };\n    ;\n    Apple.prototype.move = function () {\n        // picks a random place on the board to put apple\n    };\n    return Apple;\n}());\n\n\n\n//# sourceURL=webpack:///./src/apple.ts?");
 
 /***/ }),
 
