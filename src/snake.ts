@@ -41,12 +41,13 @@ export class Snake {
     );
   }
 
-  updateSnakeBody() {
+  updateSnakeBody(x: number, y: number) {
     // the snake body can work like a linked list
     // for every frame we can pop off the tail and add the new updated direction 
     // to the head
     // if we use and array like linked list we can pop off the array.length - 1 index value
     // update and shift on the new updated coordinate
+
 
   }
 
