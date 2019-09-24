@@ -33,12 +33,6 @@ export class Snake {
 
   draw() {
     this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(
-      this.x * this.cellWidth, 
-      this.y * this.cellHeight, 
-      30, 
-      30
-    );
     for (let i = 0; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
       this.ctx.fillRect(
