@@ -15,6 +15,12 @@ export class Board {
     this.cellHeight = this.canvasHeight / Settings.board.dimX
   }
 
+  generateAppleCoord() {
+    // pick a random coordinate [dimX, dimY]
+    // place an apple 
+    // returns coordinate
+  }
+
   draw() {
     this.ctx.fillStyle = "black";
     for (let row = 0; row < Settings.board.dimX; row++) {
