@@ -33,6 +33,12 @@ export class Snake {
 
   draw() {
     this.ctx.fillStyle = 'red';
+    this.ctx.fillRect(
+      this.x * this.cellWidth,
+      this.y * this.cellHeight,
+      30,
+      30
+    )
     for (let i = 0; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
       this.ctx.fillRect(
@@ -53,7 +59,7 @@ export class Snake {
     this.snakeBody.unshift(head);
     this.snakeBody.pop();
     
-    console.log('im here baby', this.snakeBody)
+    console.log('im here baby', this.snakeBody[1])
   }
 
   changeDirection(e: KeyboardEvent) {
@@ -85,8 +91,8 @@ export class Snake {
 
       if (this.x > Settings.board.dimX - 1) this.x = 0;
       if (this.y > Settings.board.dimY - 1) this.y = 0;
-      if (this.x < 0) this.x = Settings.board.dimX - 1;
-      if (this.y < 0) this.y = Settings.board.dimY - 1;
+      if (this.x < 0) this.x = Settings.board.dimX;
+      if (this.y < 0) this.y = Settings.board.dimY;
     }
   }
 }
