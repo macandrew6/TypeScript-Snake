@@ -39,16 +39,27 @@ export class Snake {
       30, 
       30
     );
+    for (let i = 0; i < this.snakeBody.length; i++) {
+      let node = this.snakeBody[i];
+      this.ctx.fillRect(
+        node[0] * this.cellWidth,
+        node[1] * this.cellHeight,
+        30,
+        30
+      )
+    }
   }
 
-  updateSnakeBody(x: number, y: number) {
+  updateSnakeBody(head: [number, number]) {
     // the snake body can work like a linked list
     // for every frame we can pop off the tail and add the new updated direction 
     // to the head
     // if we use and array like linked list we can pop off the array.length - 1 index value
     // update and shift on the new updated coordinate
-
-
+    this.snakeBody.unshift(head);
+    this.snakeBody.pop();
+    
+    console.log('im here baby', this.snakeBody)
   }
 
   changeDirection(e: KeyboardEvent) {
@@ -74,10 +85,9 @@ export class Snake {
   update() {
     this.updateFrame ++;
     if (this.updateFrame % 10 === 0) {
-      // run updateSnakeBody here
-      // this.updateSnakeBody(this.x, this.y);
       this.x += this.direction[0];
       this.y += this.direction[1];
+      this.updateSnakeBody([this.x, this.y]);
 
       if (this.x > Settings.board.dimX - 1) this.x = 0;
       if (this.y > Settings.board.dimY - 1) this.y = 0;
