@@ -12,7 +12,7 @@ export class Snake {
   private x: number;
   private y: number;
   private direction: [number, number];
-  private snakeBody: SnakeNode[] = [[5, 5], [4, 5], [3, 5], [2, 5]];
+  snakeBody: SnakeNode[] = [[5, 5], [4, 5], [3, 5], [2, 5]];
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext("2d");
@@ -36,8 +36,8 @@ export class Snake {
     for (let i = 0; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
       this.ctx.fillRect(
-        node[0] * this.cellWidth,
-        node[1] * this.cellHeight,
+        node[0] * this.cellWidth + 8,
+        node[1] * this.cellHeight + 8,
         30,
         30
       )
@@ -49,12 +49,25 @@ export class Snake {
     this.snakeBody.pop();
   }
 
+  grow() {
+    console.log("growing");
+  }
+
+  // updateBody() {
+  //   for (let i = this.snakeBody.length- 1; i > 0; i++) {
+  //     this.snakeBody[i][0] = this.snakeBody[i - 1][0] 
+  //     this.snakeBody[i][1] = this.snakeBody[i - 1][1] 
+  //   }
+  // }
+
   changeDirection(e: KeyboardEvent) {
     const LEFT_KEY = 37; 
     const RIGHT_KEY = 39; 
     const UP_KEY = 38; 
     const DOWN_KEY = 40;
     const keyPressed = e.keyCode; 
+    // finds bug when pressing up and right super quickly the snake will go in 
+    // the opposite direction unwanted behavior
     if (keyPressed === LEFT_KEY && this.direction[0] !== 1) { 
       this.direction = [-1, 0];
     }
@@ -72,6 +85,7 @@ export class Snake {
   update() {
     this.updateFrame ++;
     if (this.updateFrame % 10 === 0) {
+      // this.updateBody();
       this.x += this.direction[0];
       this.y += this.direction[1];
 
