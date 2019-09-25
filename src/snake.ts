@@ -12,6 +12,7 @@ export class Snake {
   private x: number;
   private y: number;
   private direction: [number, number];
+  private tail: SnakeNode;
   snakeBody: SnakeNode[] = [[5, 5], [4, 5], [3, 5], [2, 5]];
 
   constructor(private canvas: HTMLCanvasElement) {
@@ -24,6 +25,7 @@ export class Snake {
 
     this.x = this.snakeBody[0][0];
     this.y = this.snakeBody[0][1];
+    this.tail = this.snakeBody[this.snakeBody.length - 1]
     this.direction = [1, 0];
 
     this.changeDirection = this.changeDirection.bind(this);
@@ -85,7 +87,6 @@ export class Snake {
   update() {
     this.updateFrame ++;
     if (this.updateFrame % 10 === 0) {
-      // this.updateBody();
       this.x += this.direction[0];
       this.y += this.direction[1];
 
