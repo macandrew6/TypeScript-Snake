@@ -44,6 +44,8 @@ export class Game {
     )
   }
 
+  // snakeIsDead()
+
   startLoop() {
     this.requestedFrameId = requestAnimationFrame(() => this.loop());
   }

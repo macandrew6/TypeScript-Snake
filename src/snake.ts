@@ -53,8 +53,16 @@ export class Snake {
 
   grow() {
     console.log("growing");
+    const growAmount = 5;
+    const tailIdx = this.snakeBody.length - 1;
+    for (let i = 0; i < growAmount; i++) {
+      
+    }
   }
 
+  private cloneNode(idx: number): SnakeNode {
+    return [...this.snakeBody[idx]];
+  }
   // updateBody() {
   //   for (let i = this.snakeBody.length- 1; i > 0; i++) {
   //     this.snakeBody[i][0] = this.snakeBody[i - 1][0] 
