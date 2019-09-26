@@ -4,5 +4,5 @@ export const board = {
 }
 
 export const snake = {
-  growAmount: 5
+  growAmount: 1
 }

@@ -46,28 +46,23 @@ export class Snake {
     }
   }
 
-  updateSnakeBody(head: [number, number]) {
+  updateSnakeBody(head: SnakeNode, tail: SnakeNode) {
+    this.tail = tail;
     this.snakeBody.unshift(head);
     this.snakeBody.pop();
   }
 
   grow() {
     console.log("growing");
-    const growAmount = 5;
-    const tailIdx = this.snakeBody.length - 1;
+    const growAmount = Settings.snake.growAmount;
+    // const tailIdx = this.snakeBody.length - 1;
     for (let i = 0; i < growAmount; i++) {
-      
+      this.snakeBody.push(this.tail);
     }
   }
 
-  private cloneNode(idx: number): SnakeNode {
-    return [...this.snakeBody[idx]];
-  }
-  // updateBody() {
-  //   for (let i = this.snakeBody.length- 1; i > 0; i++) {
-  //     this.snakeBody[i][0] = this.snakeBody[i - 1][0] 
-  //     this.snakeBody[i][1] = this.snakeBody[i - 1][1] 
-  //   }
+  // private cloneNode(idx: number): SnakeNode {
+    // return [...this.snakeBody[idx]];
   // }
 
   changeDirection(e: KeyboardEvent) {
@@ -102,7 +97,7 @@ export class Snake {
       if (this.y > Settings.board.dimY - 1) this.y = 0;
       if (this.x < 0) this.x = Settings.board.dimX;
       if (this.y < 0) this.y = Settings.board.dimY;
-      this.updateSnakeBody([this.x, this.y]);
+      this.updateSnakeBody([this.x, this.y], this.snakeBody[this.snakeBody.length - 1]);
     }
   }
 }
