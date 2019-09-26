@@ -34,8 +34,15 @@ export class Snake {
   }
 
   draw() {
+    this.ctx.fillStyle = 'purple';
+    this.ctx.fillRect(
+      this.x * this.cellWidth + 8,
+      this.y * this.cellHeight + 8,
+      30,
+      30
+    )
     this.ctx.fillStyle = 'red';
-    for (let i = 0; i < this.snakeBody.length; i++) {
+    for (let i = 1; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
       this.ctx.fillRect(
         node[0] * this.cellWidth + 8,
@@ -53,17 +60,11 @@ export class Snake {
   }
 
   grow() {
-    console.log("growing");
     const growAmount = Settings.snake.growAmount;
-    // const tailIdx = this.snakeBody.length - 1;
     for (let i = 0; i < growAmount; i++) {
       this.snakeBody.push(this.tail);
     }
   }
-
-  // private cloneNode(idx: number): SnakeNode {
-    // return [...this.snakeBody[idx]];
-  // }
 
   changeDirection(e: KeyboardEvent) {
     const LEFT_KEY = 37; 
@@ -88,7 +89,7 @@ export class Snake {
   }
 
   update() {
-    this.updateFrame ++;
+    this.updateFrame++;
     if (this.updateFrame % 10 === 0) {
       this.x += this.direction[0];
       this.y += this.direction[1];
