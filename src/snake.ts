@@ -1,6 +1,9 @@
 import * as Settings from './settings';
 
 type SnakeNode = [number, number];
+interface SnakeSet {
+  [coord: string]: boolean
+}
 
 export class Snake {
   private ctx: CanvasRenderingContext2D;
@@ -51,6 +54,14 @@ export class Snake {
       15,
       15
     )
+  }
+
+  toSpotSet(): SnakeSet {
+    const set: SnakeSet = {};
+    this.snakeBody.forEach(node => {
+      set[`${node[0]},${node[1]}`] = true
+    })      
+    return set;
   }
 
   updateSnakeBody(head: SnakeNode, tail: SnakeNode) {

@@ -26,9 +26,8 @@ export class Game {
     this.board.draw();
     if (this.snakeIsEatingApple()) {
       this.snake.grow();
-      // this.apple.move();
-      this.apple.x++;
-      if (this.apple.x > 19) this.apple.x = 1;
+      const appleCoord = this.generateAppleCoord();
+      this.apple = new Apple(appleCoord[0], appleCoord[1], this.canvas);
     }
     if (this.snakeIsDead()) {
       this.endLoop();
@@ -39,8 +38,14 @@ export class Game {
   }
 
   private generateAppleCoord() {
-    let emptyCoord = new Set();
-    // for (let i = 1)
+    const occupiedSet = this.snake.toSpotSet();
+    const openSpots = this.board.validSpots.filter(spot => {
+      return !occupiedSet[spot]
+    })
+    const randomIdx = Math.floor(Math.random() * openSpots.length)
+    const appleX = parseInt(openSpots[randomIdx].split(',')[0]);
+    const appleY = parseInt(openSpots[randomIdx].split(',')[1]);
+    return [appleX, appleY];
   }
 
   private snakeIsEatingApple() {
