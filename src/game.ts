@@ -26,15 +26,13 @@ export class Game {
     this.board.draw();
     if (this.snakeIsEatingApple()) {
       this.snake.grow();
+      // this.apple.move();
       this.apple.x++;
       if (this.apple.x > 9) this.apple.x = 0;
-      // this.apple.move();
     }
     this.snake.draw();
     this.snake.update();
     this.apple.draw(this.ctx);
-    // console.log('looping')
-    // console.log(++this.loopCount);
   }
 
   private snakeIsEatingApple() {
