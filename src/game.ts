@@ -28,7 +28,7 @@ export class Game {
       this.snake.grow();
       // this.apple.move();
       this.apple.x++;
-      if (this.apple.x > 9) this.apple.x = 1;
+      if (this.apple.x > 19) this.apple.x = 1;
     }
     if (this.snakeIsDead()) {
       this.endLoop();

@@ -16,10 +16,10 @@ export class Apple {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = 'green';
     ctx.fillRect(
-      this.x * this.cellWidth + 8,
-      this.y * this.cellHeight + 8,
-      30,
-      30
+      this.x * this.cellWidth + 4,
+      this.y * this.cellHeight + 4,
+      15,
+      15
     )
   };
 

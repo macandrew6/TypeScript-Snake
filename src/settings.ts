@@ -1,6 +1,6 @@
 export const board = {
-  dimX: 10,
-  dimY: 10
+  dimX: 20,
+  dimY: 20
 }
 
 export const snake = {

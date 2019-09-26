@@ -38,18 +38,18 @@ export class Snake {
     for (let i = 1; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
       this.ctx.fillRect(
-        node[0] * this.cellWidth + 8,
-        node[1] * this.cellHeight + 8,
-        30,
-        30
+        node[0] * this.cellWidth + 4,
+        node[1] * this.cellHeight + 4,
+        15,
+        15
       )
     }
     this.ctx.fillStyle = 'purple';
     this.ctx.fillRect(
-      this.x * this.cellWidth + 8,
-      this.y * this.cellHeight + 8,
-      30,
-      30
+      this.x * this.cellWidth + 4,
+      this.y * this.cellHeight + 4,
+      15,
+      15
     )
   }
 
