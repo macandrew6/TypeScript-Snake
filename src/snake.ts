@@ -9,8 +9,8 @@ export class Snake {
   private canvasHeight: number = 0;
   private cellWidth: number;
   private cellHeight: number;
-  private x: number;
-  private y: number;
+  public x: number;
+  public y: number;
   private direction: [number, number];
   private tail: SnakeNode;
   snakeBody: SnakeNode[] = [[5, 5], [4, 5], [3, 5], [2, 5]];

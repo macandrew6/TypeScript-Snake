@@ -28,23 +28,33 @@ export class Game {
       this.snake.grow();
       // this.apple.move();
       this.apple.x++;
-      if (this.apple.x > 9) this.apple.x = 0;
+      if (this.apple.x > 9) this.apple.x = 1;
+    }
+    if (this.snakeIsDead()) {
+      this.endLoop();
     }
     this.snake.draw();
     this.snake.update();
     this.apple.draw(this.ctx);
   }
 
+  private generateAppleCoord() {
+    let emptyCoord = new Set();
+    // for (let i = 1)
+  }
+
   private snakeIsEatingApple() {
     return (
-      this.apple.x === this.snake.snakeBody[0][0] &&
-      this.apple.y === this.snake.snakeBody[0][1] 
+      this.apple.x === this.snake.x &&
+      this.apple.y === this.snake.y 
     )
   }
 
-  snakeIsDead() {
-    if (this.snake.snakeBody[0][0] > Settings.board.dimX - 1) this.endLoop();
-    if (this.snake.snakeBody[0][1] > Settings.board.dimX - 1) this.endLoop();
+  private snakeIsDead() {
+    if (this.snake.x > Settings.board.dimX - 2) return true;
+    if (this.snake.y > Settings.board.dimY - 2) return true;
+    if (this.snake.x < 1) return true;
+    if (this.snake.y < 1) return true;
   }
 
   startLoop() {
