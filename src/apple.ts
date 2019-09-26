@@ -13,10 +13,6 @@ export class Apple {
     // this.y = 9;
   }
 
-  private generateRandomCoor() {
-
-  }
-
   draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = 'green';
     ctx.fillRect(
