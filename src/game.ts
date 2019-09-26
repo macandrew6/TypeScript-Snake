@@ -1,11 +1,11 @@
 import { Board } from './board';
 import { Snake } from './snake';
 import { Apple } from './apple';
+import * as Settings from './settings';
 
 export class Game {
   public canvas: HTMLCanvasElement;
   private requestedFrameId: number = -1;
-  private loopCount = 0;
   private ctx: CanvasRenderingContext2D;
   private board: Board;
   private snake: Snake;
@@ -42,7 +42,10 @@ export class Game {
     )
   }
 
-  // snakeIsDead()
+  snakeIsDead() {
+    if (this.snake.snakeBody[0][0] > Settings.board.dimX - 1) this.endLoop();
+    if (this.snake.snakeBody[0][1] > Settings.board.dimX - 1) this.endLoop();
+  }
 
   startLoop() {
     this.requestedFrameId = requestAnimationFrame(() => this.loop());

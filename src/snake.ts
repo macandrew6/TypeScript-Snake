@@ -34,13 +34,6 @@ export class Snake {
   }
 
   draw() {
-    this.ctx.fillStyle = 'purple';
-    this.ctx.fillRect(
-      this.x * this.cellWidth + 8,
-      this.y * this.cellHeight + 8,
-      30,
-      30
-    )
     this.ctx.fillStyle = 'red';
     for (let i = 1; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
@@ -51,6 +44,13 @@ export class Snake {
         30
       )
     }
+    this.ctx.fillStyle = 'purple';
+    this.ctx.fillRect(
+      this.x * this.cellWidth + 8,
+      this.y * this.cellHeight + 8,
+      30,
+      30
+    )
   }
 
   updateSnakeBody(head: SnakeNode, tail: SnakeNode) {
