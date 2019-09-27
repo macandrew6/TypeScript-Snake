@@ -57,6 +57,7 @@ export class Game {
   }
 
   private snakeIsDead() {
+    // refactor using a set!
     let tempSnakeBody = this.snake.snakeBody.map(node => {
       return `${node[0]},${node[1]}`;
     });  
