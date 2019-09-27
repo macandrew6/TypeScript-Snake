@@ -29,6 +29,7 @@ export class Game {
       const appleCoord = this.generateAppleCoord();
       this.apple = new Apple(appleCoord[0], appleCoord[1], this.canvas);
     }
+
     if (this.snakeIsDead()) {
       this.endLoop();
     }
@@ -56,11 +57,11 @@ export class Game {
   }
 
   private snakeIsDead() {
-    const currentSnakeSet = Object.keys(this.snake.currentSnakeSet());
-    for (let i = 1; i < currentSnakeSet.length; i++) {
-      let snakeBodyNode = currentSnakeSet[i];
-       
-    }
+    let tempSnakeBody = this.snake.snakeBody.map(node => {
+      return `${node[0]},${node[1]}`;
+    });  
+    tempSnakeBody.shift();
+    if (tempSnakeBody.includes(`${this.snake.x},${this.snake.y}`)) return true;
     if (this.snake.x > Settings.board.dimX - 2) return true;
     if (this.snake.y > Settings.board.dimY - 2) return true;
     if (this.snake.x < 1) return true;

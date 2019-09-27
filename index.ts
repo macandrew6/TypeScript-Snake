@@ -5,5 +5,5 @@ document.addEventListener("DOMContentLoaded", () => {
   game.startLoop();
   // setTimeout(() => {
   //   game.endLoop();
-  // }, 2000);
+  // }, 1000);
 });
