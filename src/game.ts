@@ -38,9 +38,9 @@ export class Game {
   }
 
   private generateAppleCoord() {
-    const occupiedSet = this.snake.toSpotSet();
+    const currentSnakeSet = this.snake.currentSnakeSet();
     const openSpots = this.board.validSpots.filter(spot => {
-      return !occupiedSet[spot]
+      return !currentSnakeSet[spot];
     })
     const randomIdx = Math.floor(Math.random() * openSpots.length)
     const appleX = parseInt(openSpots[randomIdx].split(',')[0]);
@@ -56,6 +56,9 @@ export class Game {
   }
 
   private snakeIsDead() {
+    const currentSnakeSet = this.snake.currentSnakeSet();
+    delete currentSnakeSet[`${this.snake.x},${this.snake.y}`];
+    if (currentSnakeSet[`${this.snake.x},${this.snake.y}`]) console.log('collision');
     if (this.snake.x > Settings.board.dimX - 2) return true;
     if (this.snake.y > Settings.board.dimY - 2) return true;
     if (this.snake.x < 1) return true;

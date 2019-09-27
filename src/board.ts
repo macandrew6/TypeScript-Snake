@@ -1,8 +1,5 @@
 import * as Settings from './settings';
 
-type Coord = [number, number];
-type Row = Coord[];
-
 export class Board {
   private canvasWidth: number = 0;
   private canvasHeight: number = 0;
@@ -10,7 +7,6 @@ export class Board {
   private cellWidth: number;
   private cellHeight: number;
   validSpots: string[] = [];
-  grid: Row[] = [];
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext("2d");

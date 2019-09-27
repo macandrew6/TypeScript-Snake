@@ -56,7 +56,7 @@ export class Snake {
     )
   }
 
-  toSpotSet(): SnakeSet {
+  currentSnakeSet(): SnakeSet {
     const set: SnakeSet = {};
     this.snakeBody.forEach(node => {
       set[`${node[0]},${node[1]}`] = true
