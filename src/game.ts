@@ -56,9 +56,11 @@ export class Game {
   }
 
   private snakeIsDead() {
-    const currentSnakeSet = this.snake.currentSnakeSet();
-    delete currentSnakeSet[`${this.snake.x},${this.snake.y}`];
-    if (currentSnakeSet[`${this.snake.x},${this.snake.y}`]) console.log('collision');
+    const currentSnakeSet = Object.keys(this.snake.currentSnakeSet());
+    for (let i = 1; i < currentSnakeSet.length; i++) {
+      let snakeBodyNode = currentSnakeSet[i];
+       
+    }
     if (this.snake.x > Settings.board.dimX - 2) return true;
     if (this.snake.y > Settings.board.dimY - 2) return true;
     if (this.snake.x < 1) return true;
