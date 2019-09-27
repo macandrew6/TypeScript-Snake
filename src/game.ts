@@ -21,21 +21,21 @@ export class Game {
 
   private loop() {
     this.requestedFrameId = requestAnimationFrame(() => this.loop());
-
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
     this.board.draw();
+    this.snake.draw();
+    this.snake.update();
+    this.apple.draw(this.ctx);
+    
     if (this.snakeIsEatingApple()) {
       this.snake.grow();
       const appleCoord = this.generateAppleCoord();
       this.apple = new Apple(appleCoord[0], appleCoord[1], this.canvas);
     }
-
     if (this.snakeIsDead()) {
       this.endLoop();
     }
-    this.snake.draw();
-    this.snake.update();
-    this.apple.draw(this.ctx);
   }
 
   private generateAppleCoord() {

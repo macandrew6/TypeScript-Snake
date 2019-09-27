@@ -9,8 +9,6 @@ export class Apple {
     let canvasHeight = canvas.height;
     this.cellWidth = canvasWidth / Settings.board.dimX
     this.cellHeight = canvasHeight / Settings.board.dimX
-    // this.x = 5;
-    // this.y = 9;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
@@ -22,8 +20,4 @@ export class Apple {
       15
     )
   };
-
-  private move() {
-    // picks a random place on the board to put apple
-  }
 }
