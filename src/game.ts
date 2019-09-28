@@ -34,7 +34,6 @@ export class Game {
       this.apple = new Apple(appleCoord[0], appleCoord[1], this.canvas);
       this.scoreBoard.increaseScore();
       this.scoreBoardDiv.innerHTML = this.scoreBoard.score.toString();
-      console.log(this.scoreBoard.score);
     }
     if (this.snakeIsDead()) {
       this.endLoop();

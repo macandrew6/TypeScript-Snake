@@ -8,5 +8,5 @@ export const snake = {
 }
 
 export const game = {
-  pointPerApple: 5
+  pointPerApple: 1
 }
