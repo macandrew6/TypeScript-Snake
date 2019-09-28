@@ -6,3 +6,7 @@ export const board = {
 export const snake = {
   growAmount: 1
 }
+
+export const game = {
+  pointPerApple: 5
+}

@@ -11,7 +11,8 @@ export class Game {
   private board: Board;
   private snake: Snake;
   private apple: Apple;
-  private scoreBoard: ScoreBoard;  
+  private scoreBoard: ScoreBoard; 
+  private scoreBoardDiv: HTMLElement; 
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -19,7 +20,8 @@ export class Game {
     this.board = new Board(canvas);
     this.snake = new Snake(canvas);
     this.apple = new Apple(6, 5, canvas);
-    this.scoreBoard = new ScoreBoard(1);
+    this.scoreBoard = new ScoreBoard(Settings.game.pointPerApple);
+    this.scoreBoardDiv = document.getElementById('score-board');
   }
 
   private loop() {
@@ -30,6 +32,9 @@ export class Game {
       this.snake.grow();
       const appleCoord = this.generateAppleCoord();
       this.apple = new Apple(appleCoord[0], appleCoord[1], this.canvas);
+      this.scoreBoard.increaseScore();
+      this.scoreBoardDiv.innerHTML = this.scoreBoard.score.toString();
+      console.log(this.scoreBoard.score);
     }
     if (this.snakeIsDead()) {
       this.endLoop();
