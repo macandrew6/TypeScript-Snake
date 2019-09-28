@@ -19,6 +19,7 @@ export class Game {
     this.board = new Board(canvas);
     this.snake = new Snake(canvas);
     this.apple = new Apple(6, 5, canvas);
+    this.scoreBoard = new ScoreBoard(1);
   }
 
   private loop() {
