@@ -22,12 +22,7 @@ export class Game {
   private loop() {
     this.requestedFrameId = requestAnimationFrame(() => this.loop());
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-    this.board.draw();
-    this.snake.draw();
-    this.snake.update();
-    this.apple.draw(this.ctx);
-    
+
     if (this.snakeIsEatingApple()) {
       this.snake.grow();
       const appleCoord = this.generateAppleCoord();
@@ -36,6 +31,10 @@ export class Game {
     if (this.snakeIsDead()) {
       this.endLoop();
     }
+    this.board.draw();
+    this.snake.draw();
+    this.snake.update();
+    this.apple.draw(this.ctx);
   }
 
   private generateAppleCoord() {
@@ -63,6 +62,7 @@ export class Game {
     });  
     tempSnakeBody.shift();
     if (tempSnakeBody.includes(`${this.snake.x},${this.snake.y}`)) return true;
+    // make border button so when user clicks it activates these settings
     if (this.snake.x > Settings.board.dimX - 2) return true;
     if (this.snake.y > Settings.board.dimY - 2) return true;
     if (this.snake.x < 1) return true;
