@@ -1,6 +1,7 @@
 import { Board } from './board';
 import { Snake } from './snake';
 import { Apple } from './apple';
+import { ScoreBoard } from './scoreBoard';
 import * as Settings from './settings';
 
 export class Game {
@@ -10,6 +11,7 @@ export class Game {
   private board: Board;
   private snake: Snake;
   private apple: Apple;
+  private scoreBoard: ScoreBoard;  
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
