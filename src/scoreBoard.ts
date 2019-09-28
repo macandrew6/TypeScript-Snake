@@ -1,6 +1,11 @@
 export class ScoreBoard {
-  private score: number = 0;
-  constructor(point) {
-    
+  score: number = 0;
+  constructor(public point: number) {
+    this.point = point;
+  }
+
+  increaseScore() {
+    this.score += this.point;
+    return this.score;
   }
 }
