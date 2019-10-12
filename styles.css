@@ -5,3 +5,9 @@
 /* board */
 
 /* score board*/
+
+.full-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

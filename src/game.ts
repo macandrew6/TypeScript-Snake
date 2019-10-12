@@ -21,7 +21,7 @@ export class Game {
     this.snake = new Snake(canvas);
     this.apple = new Apple(6, 5, canvas);
     this.scoreBoard = new ScoreBoard(Settings.game.pointPerApple);
-    this.scoreBoardDiv = document.getElementById('score-board');
+    this.scoreBoardDiv = document.getElementById('score');
   }
 
   private loop() {
@@ -67,6 +67,7 @@ export class Game {
     let tempSnakeBody = this.snake.snakeBody.map(node => {
       return `${node[0]},${node[1]}`;
     });  
+
     tempSnakeBody.shift();
     if (tempSnakeBody.includes(`${this.snake.x},${this.snake.y}`)) return true;
     // make border button so when user clicks it activates these settings
@@ -74,6 +75,8 @@ export class Game {
     if (this.snake.y > Settings.board.dimY - 2) return true;
     if (this.snake.x < 1) return true;
     if (this.snake.y < 1) return true;
+    let scoreBoard = document.getElementById('score-board');
+    scoreBoard.classList.add('full-screen')
   }
 
   startLoop() {
