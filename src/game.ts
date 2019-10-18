@@ -75,8 +75,8 @@ export class Game {
     if (this.snake.y > Settings.board.dimY - 2) return true;
     if (this.snake.x < 1) return true;
     if (this.snake.y < 1) return true;
-    let scoreBoard = document.getElementById('score-board');
-    scoreBoard.classList.add('full-screen')
+    // let scoreBoard = document.getElementById('score-board');
+    // scoreBoard.classList.add('full-screen')
   }
 
   startLoop() {

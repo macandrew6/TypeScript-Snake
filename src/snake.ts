@@ -37,8 +37,8 @@ export class Snake {
   }
 
   draw() {
-    this.ctx.fillStyle = 'red';
-    for (let i = 1; i < this.snakeBody.length; i++) {
+    this.ctx.fillStyle = 'white';
+    for (let i = 0; i < this.snakeBody.length; i++) {
       let node = this.snakeBody[i];
       this.ctx.fillRect(
         node[0] * this.cellWidth + 4,
@@ -47,7 +47,7 @@ export class Snake {
         15
       )
     }
-    this.ctx.fillStyle = 'purple';
+    this.ctx.fillStyle = 'blue';
     this.ctx.fillRect(
       this.x * this.cellWidth + 4,
       this.y * this.cellHeight + 4,
@@ -109,6 +109,7 @@ export class Snake {
       if (this.y > Settings.board.dimY - 1) this.y = 0;
       if (this.x < 0) this.x = Settings.board.dimX;
       if (this.y < 0) this.y = Settings.board.dimY;
+
       this.updateSnakeBody([this.x, this.y], this.snakeBody[this.snakeBody.length - 1]);
     }
   }
